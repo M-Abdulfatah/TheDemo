@@ -1,0 +1,16 @@
+output_dir: TheDemo/Generated/
+xcassets:
+  inputs:
+    - TheDemo/Assets/Assets.xcassets
+    - TheDemo/Assets/ColorAssets.xcassets
+  outputs:
+    - templateName: swift4
+      output: Assets.swift
+ib:
+  inputs:
+    - TheDemo/
+  outputs:
+    - templateName: scenes-swift4
+      output: StoryboardScenes.swift
+    - templateName: segues-swift4
+      output: StoryboardSegues.swift
