@@ -1,8 +1,8 @@
 output_dir: TheDemo/Generated/
 xcassets:
   inputs:
-    - TheDemo/Assets/Assets.xcassets
-    - TheDemo/Assets/ColorAssets.xcassets
+    - TheDemo/Assets.xcassets
+    - TheDemo/ColorAssets.xcassets
   outputs:
     - templateName: swift4
       output: Assets.swift

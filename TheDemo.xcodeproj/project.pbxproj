@@ -13,6 +13,10 @@
 		1EE4E4AB228F9DF0009EDDFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EE4E4A9228F9DF0009EDDFA /* Main.storyboard */; };
 		1EE4E4AD228F9DF2009EDDFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EE4E4AC228F9DF2009EDDFA /* Assets.xcassets */; };
 		1EE4E4B0228F9DF2009EDDFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EE4E4AE228F9DF2009EDDFA /* LaunchScreen.storyboard */; };
+		1EE4E4BE228FA5EE009EDDFA /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EE4E4BD228FA5EE009EDDFA /* ColorAssets.xcassets */; };
+		1EE4E4C3228FA610009EDDFA /* StoryboardSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE4E4C0228FA610009EDDFA /* StoryboardSegues.swift */; };
+		1EE4E4C4228FA610009EDDFA /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE4E4C1228FA610009EDDFA /* Assets.swift */; };
+		1EE4E4C5228FA610009EDDFA /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE4E4C2228FA610009EDDFA /* StoryboardScenes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		1EE4E4AC228F9DF2009EDDFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EE4E4AF228F9DF2009EDDFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1EE4E4B1228F9DF2009EDDFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EE4E4BD228FA5EE009EDDFA /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
+		1EE4E4C0228FA610009EDDFA /* StoryboardSegues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardSegues.swift; sourceTree = "<group>"; };
+		1EE4E4C1228FA610009EDDFA /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		1EE4E4C2228FA610009EDDFA /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
 		493B65714D9A86A3D5E3795F /* Pods-TheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheDemo.release.xcconfig"; path = "Target Support Files/Pods-TheDemo/Pods-TheDemo.release.xcconfig"; sourceTree = "<group>"; };
 		4B663FBBE4D7711EDAF0C454 /* Pods_TheDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F03EE36A0D46001BC642B347 /* Pods-TheDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheDemo.debug.xcconfig"; path = "Target Support Files/Pods-TheDemo/Pods-TheDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,12 +69,14 @@
 		1EE4E4A4228F9DF0009EDDFA /* TheDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1EE4E4BF228FA610009EDDFA /* Generated */,
 				1EE4E4B9228FA46C009EDDFA /* Controller */,
 				1EE4E4B8228FA466009EDDFA /* View */,
 				1EE4E4B7228FA45A009EDDFA /* Model */,
 				1EE4E4A5228F9DF0009EDDFA /* AppDelegate.swift */,
 				1EE4E4A9228F9DF0009EDDFA /* Main.storyboard */,
 				1EE4E4AC228F9DF2009EDDFA /* Assets.xcassets */,
+				1EE4E4BD228FA5EE009EDDFA /* ColorAssets.xcassets */,
 				1EE4E4AE228F9DF2009EDDFA /* LaunchScreen.storyboard */,
 				1EE4E4B1228F9DF2009EDDFA /* Info.plist */,
 			);
@@ -93,6 +103,16 @@
 				1EE4E4A7228F9DF0009EDDFA /* ProductsVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		1EE4E4BF228FA610009EDDFA /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				1EE4E4C0228FA610009EDDFA /* StoryboardSegues.swift */,
+				1EE4E4C1228FA610009EDDFA /* Assets.swift */,
+				1EE4E4C2228FA610009EDDFA /* StoryboardScenes.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		9BF1B49CEDC4FB00966A1F2F /* Pods */ = {
@@ -124,6 +144,7 @@
 				1EE4E49F228F9DF0009EDDFA /* Frameworks */,
 				1EE4E4A0228F9DF0009EDDFA /* Resources */,
 				6065641CABA91EE0CAD4D1A3 /* [CP] Embed Pods Frameworks */,
+				1EE4E4BC228FA58F009EDDFA /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -174,6 +195,7 @@
 			files = (
 				1EE4E4B0228F9DF2009EDDFA /* LaunchScreen.storyboard in Resources */,
 				1EE4E4AD228F9DF2009EDDFA /* Assets.xcassets in Resources */,
+				1EE4E4BE228FA5EE009EDDFA /* ColorAssets.xcassets in Resources */,
 				1EE4E4AB228F9DF0009EDDFA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +203,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1EE4E4BC228FA58F009EDDFA /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftGen/bin/swiftgen\";\n\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect;\n\"${PODS_ROOT}/SwiftLint/swiftlint\";\n";
+		};
 		6065641CABA91EE0CAD4D1A3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -234,8 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EE4E4C3228FA610009EDDFA /* StoryboardSegues.swift in Sources */,
 				1EE4E4A8228F9DF0009EDDFA /* ProductsVC.swift in Sources */,
+				1EE4E4C4228FA610009EDDFA /* Assets.swift in Sources */,
 				1EE4E4A6228F9DF0009EDDFA /* AppDelegate.swift in Sources */,
+				1EE4E4C5228FA610009EDDFA /* StoryboardScenes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
