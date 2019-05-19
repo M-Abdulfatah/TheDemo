@@ -25,6 +25,11 @@ class ProductsVC: UIViewController {
     super.viewDidLoad()
     setupViews()
     loadData()
+    addObservers()
+  }
+
+  deinit {
+    remoceObservers()
   }
 
   // MARK: - Helpers Methods
@@ -54,6 +59,27 @@ class ProductsVC: UIViewController {
         }
       }
   }
+
+  private func addObservers() {
+    NotificationCenter.default.addObserver(self, selector: #selector(reachable), name: .reachable, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(notReachable), name: .notReachable, object: nil)
+  }
+
+  private func remoceObservers() {
+    NotificationCenter.default.removeObserver(self, name: .notReachable, object: nil)
+    NotificationCenter.default.removeObserver(self, name: .reachable, object: nil)
+  }
+
+  @objc
+  func reachable() {
+    print("Reachable")
+  }
+
+  @objc
+  func notReachable() {
+    print("Not Reachable")
+  }
+
 }
 
 // MARK: - UICollectionView Delegate
