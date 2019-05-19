@@ -34,7 +34,7 @@ class ProductsVC: UIViewController {
 
   // MARK: - Helpers Methods
   private func setupViews() {
-    title = "The D.emo"
+    title = "the D.emo"
     let producCell = UINib(nibName: "ProductCell", bundle: nil)
     collectionView.register(producCell, forCellWithReuseIdentifier: cellID)
     collectionView.delegate = self
@@ -47,7 +47,7 @@ class ProductsVC: UIViewController {
   private func loadData() {
     collectionView.refreshControl?.beginRefreshing()
     activeRequest?.cancel()
-    activeRequest = AF.request(APIRouter.getProducts(forceLoad: true))
+    activeRequest = AF.request(APIRouter.getProducts(forceLoad: isConnected))
       .responseDecodable { [unowned self] (response: DataResponse<ProductResponse>) in
         defer { self.collectionView.refreshControl?.endRefreshing() }
         switch response.result {
@@ -99,6 +99,12 @@ extension ProductsVC: UICollectionViewDelegateFlowLayout {
   // swiftlint:disable next line_length
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
     return 30
+  }
+
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let detailsVC = StoryboardScene.Main.productDetailsVC.instantiate()
+    detailsVC.product = products[indexPath.row]
+    navigationController?.pushViewController(detailsVC, animated: true)
   }
 }
 

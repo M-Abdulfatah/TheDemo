@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   // swiftlint:disable next discouraged_optional_collection
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     setupMainColorScheme()
+    NetworkManager.shared.startNetworkReachabilityObserver()
     return true
   }
 
@@ -24,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UINavigationBar.appearance().tintColor = .white
     UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
     UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-    UINavigationBar.appearance().prefersLargeTitles = true
+//    UINavigationBar.appearance().prefersLargeTitles = true
     UINavigationBar.appearance().isTranslucent = false
   }
 }
