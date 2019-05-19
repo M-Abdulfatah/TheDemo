@@ -21,6 +21,8 @@ internal enum Asset {
   internal enum Assets {
   }
   internal enum ColorAssets {
+    internal static let accent = ColorAsset(name: "accent")
+    internal static let primary = ColorAsset(name: "primary")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
