@@ -26,17 +26,12 @@ class NetworkManager {
       self?.listners.forEach { $0(status) }
 
       switch status {
-        case .notReachable:
+        case .notReachable, .unknown:
           print("The network is not reachable")
-
-        case .unknown :
-          print("It is unknown whether the network is reachable")
-
-        case .reachable(.ethernetOrWiFi):
-          print("The network is reachable over the WiFi connection")
-
-        case .reachable(.wwan):
-          print("The network is reachable over the WWAN connection")
+          NotificationCenter.default.post(name: .notReachable, object: nil)
+        case .reachable:
+          print("The network is reachable")
+          NotificationCenter.default.post(name: .reachable, object: nil)
       }
     }
     // start listening

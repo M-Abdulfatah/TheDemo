@@ -9,3 +9,8 @@
 import Foundation
 typealias Colors = Asset.ColorAssets
 typealias Images = Asset.Assets
+
+extension Notification.Name {
+  static let notReachable = Notification.Name("notReachable")
+  static let reachable = Notification.Name("reachable")
+}
