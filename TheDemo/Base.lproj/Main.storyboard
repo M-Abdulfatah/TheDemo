@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,27 +37,77 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARH-cr-Sz4">
+                                <rect key="frame" x="0.0" y="667" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Internet Connection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPz-HL-6cH">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" name="accent"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="FPz-HL-6cH" secondAttribute="trailing" id="4ey-gd-pFe"/>
+                                    <constraint firstItem="FPz-HL-6cH" firstAttribute="leading" secondItem="ARH-cr-Sz4" secondAttribute="leading" id="clR-Yb-bZs"/>
+                                    <constraint firstAttribute="bottom" secondItem="FPz-HL-6cH" secondAttribute="bottom" id="n3w-xm-sf4"/>
+                                    <constraint firstAttribute="height" constant="50" id="wMM-IH-s6v"/>
+                                    <constraint firstItem="FPz-HL-6cH" firstAttribute="top" secondItem="ARH-cr-Sz4" secondAttribute="top" id="zCa-bu-uYP"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsE-vA-lej">
+                                <rect key="frame" x="0.0" y="667" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F83-OL-0f5">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="Connected. Tap or pull to refresh.">
+                                            <color key="titleColor" name="accent"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressRefreshBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZUy-z3-nE6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="F83-OL-0f5" firstAttribute="top" secondItem="rsE-vA-lej" secondAttribute="top" id="Vnt-0n-Rzw"/>
+                                    <constraint firstAttribute="trailing" secondItem="F83-OL-0f5" secondAttribute="trailing" id="aZZ-2P-9iA"/>
+                                    <constraint firstAttribute="height" constant="50" id="bfJ-KI-2bQ"/>
+                                    <constraint firstItem="F83-OL-0f5" firstAttribute="leading" secondItem="rsE-vA-lej" secondAttribute="leading" id="bj8-cc-Grg"/>
+                                    <constraint firstAttribute="bottom" secondItem="F83-OL-0f5" secondAttribute="bottom" id="iYC-5R-HVR"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3wy-Wz-IRT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="G9L-49-ORp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3wy-Wz-IRT" secondAttribute="trailing" id="OqS-sl-7b6"/>
+                            <constraint firstAttribute="bottom" secondItem="ARH-cr-Sz4" secondAttribute="bottom" constant="-50" id="33K-DH-VtF"/>
+                            <constraint firstItem="3wy-Wz-IRT" firstAttribute="leading" secondItem="Qwb-B8-yGH" secondAttribute="leading" id="G9L-49-ORp"/>
+                            <constraint firstItem="ARH-cr-Sz4" firstAttribute="leading" secondItem="Qwb-B8-yGH" secondAttribute="leading" id="K42-FR-65T"/>
+                            <constraint firstAttribute="bottom" secondItem="rsE-vA-lej" secondAttribute="bottom" constant="-50" id="LS6-Vh-qBb"/>
+                            <constraint firstItem="Qwb-B8-yGH" firstAttribute="trailing" secondItem="3wy-Wz-IRT" secondAttribute="trailing" id="OqS-sl-7b6"/>
+                            <constraint firstItem="Qwb-B8-yGH" firstAttribute="trailing" secondItem="ARH-cr-Sz4" secondAttribute="trailing" id="PWd-mC-Lhf"/>
                             <constraint firstItem="ZPd-EP-kjo" firstAttribute="top" secondItem="3wy-Wz-IRT" secondAttribute="bottom" constant="16" id="U6c-2c-vvz"/>
                             <constraint firstAttribute="bottom" secondItem="ZPd-EP-kjo" secondAttribute="bottom" constant="20" id="dwj-HU-3Te"/>
-                            <constraint firstItem="ZPd-EP-kjo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="p08-80-Bch"/>
-                            <constraint firstItem="3wy-Wz-IRT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zFu-a2-o7m"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZPd-EP-kjo" secondAttribute="trailing" id="zof-8d-0TB"/>
+                            <constraint firstItem="rsE-vA-lej" firstAttribute="leading" secondItem="Qwb-B8-yGH" secondAttribute="leading" id="kUz-aq-XCE"/>
+                            <constraint firstItem="ZPd-EP-kjo" firstAttribute="leading" secondItem="Qwb-B8-yGH" secondAttribute="leading" id="p08-80-Bch"/>
+                            <constraint firstItem="rsE-vA-lej" firstAttribute="trailing" secondItem="Qwb-B8-yGH" secondAttribute="trailing" id="qyJ-Lo-j6O"/>
+                            <constraint firstItem="3wy-Wz-IRT" firstAttribute="top" secondItem="Qwb-B8-yGH" secondAttribute="top" id="zFu-a2-o7m"/>
+                            <constraint firstItem="Qwb-B8-yGH" firstAttribute="trailing" secondItem="ZPd-EP-kjo" secondAttribute="trailing" id="zof-8d-0TB"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="Qwb-B8-yGH"/>
                     </view>
                     <navigationItem key="navigationItem" id="p4P-Jc-o2g"/>
                     <connections>
                         <outlet property="collectionView" destination="ZPd-EP-kjo" id="T1M-tW-x7g"/>
+                        <outlet property="internetBottomConstraint" destination="LS6-Vh-qBb" id="i1H-lY-fxg"/>
+                        <outlet property="noInternetBottomConstraint" destination="33K-DH-VtF" id="zRm-w4-QFc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="-591.45427286356824"/>
+            <point key="canvasLocation" x="804" y="-591"/>
         </scene>
         <!--Product DetailsVC-->
         <scene sceneID="yk0-0B-bcL">
@@ -138,17 +189,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="HWj-1b-RqK" firstAttribute="leading" secondItem="aSx-1k-yRq" secondAttribute="leading" id="6ay-VK-heP"/>
+                            <constraint firstItem="HWj-1b-RqK" firstAttribute="leading" secondItem="FBG-7m-ikQ" secondAttribute="leading" id="6ay-VK-heP"/>
                             <constraint firstItem="vRq-Pi-97q" firstAttribute="top" secondItem="HWj-1b-RqK" secondAttribute="bottom" id="IbH-jP-EzD"/>
-                            <constraint firstItem="vRq-Pi-97q" firstAttribute="leading" secondItem="aSx-1k-yRq" secondAttribute="leading" id="IkG-cu-AU3"/>
+                            <constraint firstItem="vRq-Pi-97q" firstAttribute="leading" secondItem="FBG-7m-ikQ" secondAttribute="leading" id="IkG-cu-AU3"/>
                             <constraint firstAttribute="bottom" secondItem="vRq-Pi-97q" secondAttribute="bottom" id="T9Z-6g-DWM"/>
-                            <constraint firstItem="HWj-1b-RqK" firstAttribute="trailing" secondItem="aSx-1k-yRq" secondAttribute="trailing" id="c39-06-i5P"/>
+                            <constraint firstItem="HWj-1b-RqK" firstAttribute="trailing" secondItem="FBG-7m-ikQ" secondAttribute="trailing" id="c39-06-i5P"/>
                             <constraint firstItem="UZE-Qk-IOT" firstAttribute="width" secondItem="QZP-7A-Y9Z" secondAttribute="width" id="dZH-Ba-AFE"/>
-                            <constraint firstItem="HWj-1b-RqK" firstAttribute="top" secondItem="aSx-1k-yRq" secondAttribute="top" id="mMj-bh-bsv"/>
-                            <constraint firstItem="aSx-1k-yRq" firstAttribute="trailing" secondItem="vRq-Pi-97q" secondAttribute="trailing" id="vY6-tr-IKQ"/>
+                            <constraint firstItem="HWj-1b-RqK" firstAttribute="top" secondItem="FBG-7m-ikQ" secondAttribute="top" id="mMj-bh-bsv"/>
+                            <constraint firstItem="FBG-7m-ikQ" firstAttribute="trailing" secondItem="vRq-Pi-97q" secondAttribute="trailing" id="vY6-tr-IKQ"/>
                             <constraint firstItem="UZE-Qk-IOT" firstAttribute="height" secondItem="QZP-7A-Y9Z" secondAttribute="height" priority="250" id="yFB-mf-41a"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="aSx-1k-yRq"/>
+                        <viewLayoutGuide key="safeArea" id="FBG-7m-ikQ"/>
                     </view>
                     <connections>
                         <outlet property="descriptionTxtView" destination="geY-tY-aX8" id="hPW-8r-ngK"/>
@@ -160,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dxc-tN-9UD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1829.5999999999999" y="-591.45427286356824"/>
+            <point key="canvasLocation" x="1521" y="-591"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x6d-K8-ydv">
@@ -181,4 +232,9 @@
             <point key="canvasLocation" x="120.8" y="-590.55472263868069"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="accent">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
