@@ -30,7 +30,7 @@ class ProductCell: UICollectionViewCell {
     contentView.layer.borderWidth = 1.0
     contentView.layer.borderColor = UIColor.clear.cgColor
     contentView.layer.masksToBounds = true
-    contentView.backgroundColor = .white
+    contentView.backgroundColor = Colors.secondary.color
 
     layer.shadowColor = UIColor.black.cgColor
     layer.shadowOffset = CGSize(width: 2, height: 5)

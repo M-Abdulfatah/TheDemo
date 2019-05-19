@@ -16,9 +16,12 @@ class ProductsVC: UIViewController {
   var products: [Product] = []
   let refresher = UIRefreshControl()
   var activeRequest: DataRequest?
+  var disconnected = false
 
   // MARK: - IBOutlets
   @IBOutlet private weak var collectionView: UICollectionView!
+  @IBOutlet private weak var noInternetBottomConstraint: NSLayoutConstraint!
+  @IBOutlet private weak var internetBottomConstraint: NSLayoutConstraint!
 
   // MARK: - Lifecycle Methods
   override func viewDidLoad() {
@@ -29,12 +32,12 @@ class ProductsVC: UIViewController {
   }
 
   deinit {
-    remoceObservers()
+    removeObservers()
   }
 
   // MARK: - Helpers Methods
   private func setupViews() {
-    title = "the D.emo"
+    title = "theD.emo"
     let producCell = UINib(nibName: "ProductCell", bundle: nil)
     collectionView.register(producCell, forCellWithReuseIdentifier: cellID)
     collectionView.delegate = self
@@ -65,21 +68,54 @@ class ProductsVC: UIViewController {
     NotificationCenter.default.addObserver(self, selector: #selector(notReachable), name: .notReachable, object: nil)
   }
 
-  private func remoceObservers() {
+  private func removeObservers() {
     NotificationCenter.default.removeObserver(self, name: .notReachable, object: nil)
     NotificationCenter.default.removeObserver(self, name: .reachable, object: nil)
   }
 
+  private func animateConnectedViewDown() {
+    UIView.animate(withDuration: 0.2) {
+      self.internetBottomConstraint.constant = -50
+      self.view.layoutIfNeeded()
+    }
+  }
+
   @objc
   func reachable() {
-    print("Reachable")
+    if disconnected {
+      disconnected = false
+      UIView.animate(withDuration: 0.2) {
+        self.internetBottomConstraint.constant = 0
+        self.view.layoutIfNeeded()
+      }
+    }
   }
 
   @objc
   func notReachable() {
-    print("Not Reachable")
+    disconnected = true
+    UIView.animate(
+      withDuration: 0.2,
+      animations: {
+      self.noInternetBottomConstraint.constant = 0
+      self.view.layoutIfNeeded()
+      }, completion: { _ in
+      UIView.animate(
+        withDuration: 0.2,
+        delay: 3,
+        animations: {
+        self.noInternetBottomConstraint.constant = -50
+        self.view.layoutIfNeeded()
+        }, completion: nil)
+      })
   }
 
+  @IBAction
+  func didPressRefreshBtn(_ sender: Any) {
+    collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+    loadData()
+    animateConnectedViewDown()
+  }
 }
 
 // MARK: - UICollectionView Delegate
@@ -105,6 +141,10 @@ extension ProductsVC: UICollectionViewDelegateFlowLayout {
     let detailsVC = StoryboardScene.Main.productDetailsVC.instantiate()
     detailsVC.product = products[indexPath.row]
     navigationController?.pushViewController(detailsVC, animated: true)
+  }
+
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    animateConnectedViewDown()
   }
 }
 
