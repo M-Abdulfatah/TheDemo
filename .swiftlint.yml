@@ -39,7 +39,6 @@ opt_in_rules:
   - unneeded_parentheses_in_closure_argument
   - yoda_condition
   - unused_import
-  - file_types_order
   - discouraged_object_literal
 attributes:
   always_on_same_line: []
