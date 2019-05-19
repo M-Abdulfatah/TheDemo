@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ProductsVC.swift
 //  TheDemo
 //
 //  Created by Mahmoud Mohammed on 5/18/19.
@@ -8,13 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ProductsVC: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
   }
-
-
 }
-
