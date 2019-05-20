@@ -45,6 +45,10 @@ class ProductsVC: UIViewController {
     refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
     refresher.tintColor = Colors.accent.color
     collectionView.refreshControl = refresher
+    collectionView.contentInset = UIEdgeInsets(top: 23, left: 10, bottom: 10, right: 10)
+    if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
+      layout.delegate = self
+    }
   }
 
   @objc
@@ -122,25 +126,25 @@ class ProductsVC: UIViewController {
 // MARK: - UICollectionView Delegate
 extension ProductsVC: UICollectionViewDelegateFlowLayout {
   // swiftlint:disable next line_length
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    // calculate item height dynamically based on the image height
-    let itemWidth = (collectionView.frame.width - 16) / 2 // 32 for the item padding
-    let imageWidth = products[indexPath.row].image.imageSize.width
-    let imageHeight = products[indexPath.row].image.imageSize.height
-    let scaleFactor = itemWidth / imageWidth
-    let newImageHeight = imageHeight * scaleFactor
-    let newItemHeight = newImageHeight + 95 // 75 title label height and 20 padding top
-    return CGSize(width: itemWidth, height: newItemHeight)
-  }
-
-  // swiftlint:disable next line_length
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 16
-  }
-
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    return 16
-  }
+//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//    // calculate item height dynamically based on the image height
+//    let itemWidth = (collectionView.frame.width - 16) / 2 // 32 for the item padding
+//    let imageWidth = products[indexPath.row].image.imageSize.width
+//    let imageHeight = products[indexPath.row].image.imageSize.height
+//    let scaleFactor = itemWidth / imageWidth
+//    let newImageHeight = imageHeight * scaleFactor
+//    let newItemHeight = newImageHeight + 95 // 75 title label height and 20 padding top
+//    return CGSize(width: itemWidth, height: newItemHeight)
+//  }
+//
+//  // swiftlint:disable next line_length
+//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//    return 16
+//  }
+//
+//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//    return 16
+//  }
 
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let detailsVC = StoryboardScene.Main.productDetailsVC.instantiate()
@@ -172,4 +176,13 @@ extension ProductsVC: UICollectionViewDataSource {
     cell.setupViews(withProduct: products[indexPath.row])
     return cell
   }
+}
+
+extension ProductsVC: PinterestLayoutDelegate {
+
+  // 1. Returns the photo height
+  func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
+    return products[indexPath.row].image.imageSize.height
+  }
+
 }

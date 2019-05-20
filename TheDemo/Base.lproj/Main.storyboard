@@ -23,14 +23,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZPd-EP-kjo">
-                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bNE-Zr-eGu">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
+                                <collectionViewLayout key="collectionViewLayout" id="HVL-90-Cmm" customClass="PinterestLayout" customModule="TheDemo" customModuleProvider="target"/>
                                 <cells/>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARH-cr-Sz4">
@@ -88,10 +83,10 @@
                             <constraint firstAttribute="bottom" secondItem="ZPd-EP-kjo" secondAttribute="bottom" id="dwj-HU-3Te"/>
                             <constraint firstItem="rsE-vA-lej" firstAttribute="leading" secondItem="Qwb-B8-yGH" secondAttribute="leading" id="kUz-aq-XCE"/>
                             <constraint firstItem="ZPd-EP-kjo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lfF-Hf-eza"/>
-                            <constraint firstItem="ZPd-EP-kjo" firstAttribute="leading" secondItem="Qwb-B8-yGH" secondAttribute="leading" constant="16" id="p08-80-Bch"/>
+                            <constraint firstItem="ZPd-EP-kjo" firstAttribute="leading" secondItem="Qwb-B8-yGH" secondAttribute="leading" id="p08-80-Bch"/>
                             <constraint firstItem="rsE-vA-lej" firstAttribute="trailing" secondItem="Qwb-B8-yGH" secondAttribute="trailing" id="qyJ-Lo-j6O"/>
                             <constraint firstItem="wlD-I7-nxt" firstAttribute="leading" secondItem="Qwb-B8-yGH" secondAttribute="leading" id="udL-6h-Ub6"/>
-                            <constraint firstItem="Qwb-B8-yGH" firstAttribute="trailing" secondItem="ZPd-EP-kjo" secondAttribute="trailing" constant="16" id="zof-8d-0TB"/>
+                            <constraint firstItem="Qwb-B8-yGH" firstAttribute="trailing" secondItem="ZPd-EP-kjo" secondAttribute="trailing" id="zof-8d-0TB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qwb-B8-yGH"/>
                     </view>
