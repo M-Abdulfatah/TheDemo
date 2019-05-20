@@ -35,4 +35,8 @@ class ProductDetailsVC: UIViewController {
     imageHeightConstraint.constant = product.image.imageSize.height * scaleFactor
   }
 
+  @IBAction
+  func didPressDismissBtn(_ sender: Any) {
+    dismiss(animated: true, completion: nil)
+  }
 }

@@ -26,18 +26,8 @@ class ProductCell: UICollectionViewCell {
   }
 
   private func setupViews() {
-    contentView.layer.cornerRadius = 20
-    contentView.layer.borderWidth = 1.0
-    contentView.layer.borderColor = UIColor.clear.cgColor
+    contentView.layer.cornerRadius = 10
     contentView.layer.masksToBounds = true
     contentView.backgroundColor = Colors.secondary.color
-
-    layer.shadowColor = UIColor.black.cgColor
-    layer.shadowOffset = CGSize(width: 2, height: 5)
-    layer.shadowRadius = 3
-    layer.shadowOpacity = 0.15
-    layer.masksToBounds = false
-    layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
-    layer.backgroundColor = UIColor.clear.cgColor
   }
 }
