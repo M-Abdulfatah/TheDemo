@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		02D90D2630C14E708E390EB4 /* Pods_TheDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B663FBBE4D7711EDAF0C454 /* Pods_TheDemo.framework */; };
 		1E1C660F2292F2E000DFDDF7 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1C660E2292F2E000DFDDF7 /* SplashVC.swift */; };
+		1E1C66122292F9CF00DFDDF7 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1C66112292F9CF00DFDDF7 /* PinterestLayout.swift */; };
 		1E1ED19A22917F73000DBB06 /* ProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1ED19922917F73000DBB06 /* ProductResponse.swift */; };
 		1E1ED19C2291815A000DBB06 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1ED19B2291815A000DBB06 /* Product.swift */; };
 		1E1ED19E22918165000DBB06 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1ED19D22918165000DBB06 /* Image.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		1E1C660E2292F2E000DFDDF7 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		1E1C66112292F9CF00DFDDF7 /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		1E1ED19922917F73000DBB06 /* ProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResponse.swift; sourceTree = "<group>"; };
 		1E1ED19B2291815A000DBB06 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		1E1ED19D22918165000DBB06 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -70,6 +72,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E1C66102292F9A400DFDDF7 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				1E1C66112292F9CF00DFDDF7 /* PinterestLayout.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
 		1E1ED1A522919535000DBB06 /* Utlis */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +110,7 @@
 		1EE4E4A4228F9DF0009EDDFA /* TheDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1E1C66102292F9A400DFDDF7 /* Layouts */,
 				1E1ED1A522919535000DBB06 /* Utlis */,
 				1EFAA6282291738800BC2C2F /* Service */,
 				1EE4E4BF228FA610009EDDFA /* Generated */,
@@ -336,6 +347,7 @@
 				1EE4E4A6228F9DF0009EDDFA /* AppDelegate.swift in Sources */,
 				1E1ED1AF2291DB69000DBB06 /* NetworkManager.swift in Sources */,
 				1E1C660F2292F2E000DFDDF7 /* SplashVC.swift in Sources */,
+				1E1C66122292F9CF00DFDDF7 /* PinterestLayout.swift in Sources */,
 				1E1ED1A322918C85000DBB06 /* ProductCell.swift in Sources */,
 				1EE4E4C5228FA610009EDDFA /* StoryboardScenes.swift in Sources */,
 				1E1ED19A22917F73000DBB06 /* ProductResponse.swift in Sources */,
