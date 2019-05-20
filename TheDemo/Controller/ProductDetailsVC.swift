@@ -8,11 +8,13 @@
 
 import UIKit
 
+/// This controller is responsible to show product details 
 class ProductDetailsVC: UIViewController {
 
   // MARK: - Properties
   var product: Product!
 
+  // MARK: - IBOutlets
   @IBOutlet private weak var titleLabel: UILabel!
   @IBOutlet private weak var priceLabel: UILabel!
   @IBOutlet private weak var descriptionTxtView: UITextView!
@@ -35,6 +37,7 @@ class ProductDetailsVC: UIViewController {
     imageHeightConstraint.constant = product.image.imageSize.height * scaleFactor
   }
 
+  // MARK: - IBActions
   @IBAction
   func didPressDismissBtn(_ sender: Any) {
     dismiss(animated: true, completion: nil)

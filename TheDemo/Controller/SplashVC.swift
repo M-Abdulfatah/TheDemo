@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// This controller is responsible for showing the splash screen
 class SplashVC: UIViewController {
 
   // MARK: - IBOutlets
@@ -17,6 +18,7 @@ class SplashVC: UIViewController {
   // MARK: - LifeCycle Methods
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    // to start animation after 1 seconed
     _ = Timer.scheduledTimer(
       timeInterval: 1,
       target: self,

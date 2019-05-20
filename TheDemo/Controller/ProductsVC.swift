@@ -9,6 +9,7 @@
 import Alamofire
 import UIKit
 
+/// This controller is responsible to show list of products
 class ProductsVC: UIViewController {
 
   // MARK: - Properties
@@ -31,6 +32,7 @@ class ProductsVC: UIViewController {
     addObservers()
   }
 
+  // remove observers from memory
   deinit {
     removeObservers()
   }
@@ -51,6 +53,7 @@ class ProductsVC: UIViewController {
     }
   }
 
+  // load products data
   @objc
   private func loadData() {
     collectionView.refreshControl?.beginRefreshing()
@@ -68,6 +71,7 @@ class ProductsVC: UIViewController {
       }
   }
 
+  // Notification observers to handle networking
   private func addObservers() {
     NotificationCenter.default.addObserver(self, selector: #selector(reachable), name: .reachable, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(notReachable), name: .notReachable, object: nil)
@@ -78,6 +82,7 @@ class ProductsVC: UIViewController {
     NotificationCenter.default.removeObserver(self, name: .reachable, object: nil)
   }
 
+  // To hide the connected view
   private func animateConnectedViewDown() {
     UIView.animate(withDuration: 0.2) {
       self.internetBottomConstraint.constant = -50
@@ -87,12 +92,12 @@ class ProductsVC: UIViewController {
 
   @objc
   func reachable() {
-    if disconnected {
-      disconnected = false
-      UIView.animate(withDuration: 0.2) {
-        self.internetBottomConstraint.constant = 0
-        self.view.layoutIfNeeded()
-      }
+    // to show the connected view only after the internet was disconnected
+    guard disconnected else { return }
+    disconnected = false
+    UIView.animate(withDuration: 0.2) {
+      self.internetBottomConstraint.constant = 0
+      self.view.layoutIfNeeded()
     }
   }
 
@@ -125,33 +130,13 @@ class ProductsVC: UIViewController {
 
 // MARK: - UICollectionView Delegate
 extension ProductsVC: UICollectionViewDelegateFlowLayout {
-  // swiftlint:disable next line_length
-//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//    // calculate item height dynamically based on the image height
-//    let itemWidth = (collectionView.frame.width - 16) / 2 // 32 for the item padding
-//    let imageWidth = products[indexPath.row].image.imageSize.width
-//    let imageHeight = products[indexPath.row].image.imageSize.height
-//    let scaleFactor = itemWidth / imageWidth
-//    let newImageHeight = imageHeight * scaleFactor
-//    let newItemHeight = newImageHeight + 95 // 75 title label height and 20 padding top
-//    return CGSize(width: itemWidth, height: newItemHeight)
-//  }
-//
-//  // swiftlint:disable next line_length
-//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//    return 16
-//  }
-//
-//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//    return 16
-//  }
-
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let detailsVC = StoryboardScene.Main.productDetailsVC.instantiate()
     detailsVC.product = products[indexPath.row]
     present(detailsVC, animated: true, completion: nil)
   }
 
+  // hide connected view if it wasn't hidden
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
     animateConnectedViewDown()
   }
@@ -179,10 +164,9 @@ extension ProductsVC: UICollectionViewDataSource {
 }
 
 extension ProductsVC: PinterestLayoutDelegate {
-
   // 1. Returns the photo height
-  func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-    return products[indexPath.row].image.imageSize.height
+  func collectionView(_ collectionView: UICollectionView, sizeForPhotoAtIndexPath indexPath: IndexPath) -> CGSize {
+    return products[indexPath.row].image.imageSize
   }
 
 }

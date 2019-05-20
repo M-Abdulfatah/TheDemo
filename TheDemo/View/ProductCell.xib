@@ -19,8 +19,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="312" height="350"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label teststsdf sdfsf sdfs d fsdf  fs fsd f" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3ie-88-Lui">
-                        <rect key="frame" x="8" y="20" width="220" height="75"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label teststsdf sdfsf sdfs d fsdf  fs fsd f" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="3ie-88-Lui">
+                        <rect key="frame" x="8" y="12" width="238" height="75"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="75" id="peh-Bq-qhA"/>
                         </constraints>
@@ -29,9 +29,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WL2-TO-DQX">
-                        <rect key="frame" x="244" y="47.5" width="60" height="20.5"/>
+                        <rect key="frame" x="262" y="39.5" width="50" height="20.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="60" id="ByR-TN-XVm"/>
+                            <constraint firstAttribute="width" constant="50" id="ByR-TN-XVm"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -45,13 +45,13 @@
             <constraints>
                 <constraint firstItem="WL2-TO-DQX" firstAttribute="leading" secondItem="3ie-88-Lui" secondAttribute="trailing" constant="16" id="6DG-ok-xHe"/>
                 <constraint firstItem="WL2-TO-DQX" firstAttribute="centerY" secondItem="3ie-88-Lui" secondAttribute="centerY" id="8jH-jh-Nu4"/>
-                <constraint firstAttribute="trailing" secondItem="WL2-TO-DQX" secondAttribute="trailing" constant="8" id="JG8-gp-ros"/>
-                <constraint firstItem="3ie-88-Lui" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="RoA-Ci-kSQ"/>
+                <constraint firstAttribute="trailing" secondItem="WL2-TO-DQX" secondAttribute="trailing" id="JG8-gp-ros"/>
+                <constraint firstItem="3ie-88-Lui" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="RoA-Ci-kSQ"/>
                 <constraint firstAttribute="trailing" secondItem="mqp-WH-bq6" secondAttribute="trailing" id="aX9-V2-wTa"/>
                 <constraint firstAttribute="bottom" secondItem="mqp-WH-bq6" secondAttribute="bottom" id="exZ-ch-Zsf"/>
                 <constraint firstItem="3ie-88-Lui" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="iom-vF-cso"/>
                 <constraint firstItem="mqp-WH-bq6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="l8m-rX-p2C"/>
-                <constraint firstItem="mqp-WH-bq6" firstAttribute="top" secondItem="3ie-88-Lui" secondAttribute="bottom" id="omC-6P-JS9"/>
+                <constraint firstItem="mqp-WH-bq6" firstAttribute="top" secondItem="3ie-88-Lui" secondAttribute="bottom" constant="8" id="omC-6P-JS9"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="312" height="350"/>

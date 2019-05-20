@@ -10,7 +10,7 @@ import UIKit
 
 protocol PinterestLayoutDelegate: class {
   // 1. Method to ask the delegate for the height of the image
-  func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat
+  func collectionView(_ collectionView: UICollectionView, sizeForPhotoAtIndexPath indexPath: IndexPath) -> CGSize
 }
 
 class PinterestLayout: UICollectionViewLayout {
@@ -20,7 +20,7 @@ class PinterestLayout: UICollectionViewLayout {
   //2. Configurable properties
   fileprivate var numberOfColumns = 2
   fileprivate var cellPadding: CGFloat = 6
-  fileprivate var titleViewHeight: CGFloat = 113
+  fileprivate var titleViewHeight: CGFloat = 95
 
   //3. Array to keep a cache of attributes.
   fileprivate var cache = [UICollectionViewLayoutAttributes]()
@@ -61,8 +61,10 @@ class PinterestLayout: UICollectionViewLayout {
       let indexPath = IndexPath(item: item, section: 0)
 
       // 4. Asks the delegate for the height of the picture and the annotation and calculates the cell frame.
-      let photoHeight = delegate.collectionView(collectionView, heightForPhotoAtIndexPath: indexPath)
-      let height = cellPadding * 2 + photoHeight + titleViewHeight
+      let photoSize = delegate.collectionView(collectionView, sizeForPhotoAtIndexPath: indexPath)
+      let scaleFactor = (columnWidth - (2 * cellPadding)) / photoSize.width
+      let newPhotoHeight = scaleFactor * photoSize.height
+      let height = cellPadding * 2 + newPhotoHeight + titleViewHeight
       let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
       let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
 
