@@ -37,12 +37,13 @@ class ProductsVC: UIViewController {
 
   // MARK: - Helpers Methods
   private func setupViews() {
-    title = "theD.emo"
+    title = "the D.emo"
     let producCell = UINib(nibName: "ProductCell", bundle: nil)
     collectionView.register(producCell, forCellWithReuseIdentifier: cellID)
     collectionView.delegate = self
     collectionView.dataSource = self
     refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
+    refresher.tintColor = Colors.accent.color
     collectionView.refreshControl = refresher
   }
 
@@ -123,7 +124,7 @@ extension ProductsVC: UICollectionViewDelegateFlowLayout {
   // swiftlint:disable next line_length
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     // calculate item height dynamically based on the image height
-    let itemWidth = collectionView.frame.width - 32 // 32 for the item padding
+    let itemWidth = (collectionView.frame.width - 16) / 2 // 32 for the item padding
     let imageWidth = products[indexPath.row].image.imageSize.width
     let imageHeight = products[indexPath.row].image.imageSize.height
     let scaleFactor = itemWidth / imageWidth
@@ -134,13 +135,17 @@ extension ProductsVC: UICollectionViewDelegateFlowLayout {
 
   // swiftlint:disable next line_length
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 30
+    return 16
+  }
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    return 16
   }
 
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let detailsVC = StoryboardScene.Main.productDetailsVC.instantiate()
     detailsVC.product = products[indexPath.row]
-    navigationController?.pushViewController(detailsVC, animated: true)
+    present(detailsVC, animated: true, completion: nil)
   }
 
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -150,6 +155,11 @@ extension ProductsVC: UICollectionViewDelegateFlowLayout {
 
 // MARK: - UICollectionView DataSource
 extension ProductsVC: UICollectionViewDataSource {
+  // swiftlint:disable next line_length
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+    return CGSize(width: collectionView.frame.width, height: 20)
+  }
+
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return products.count
   }

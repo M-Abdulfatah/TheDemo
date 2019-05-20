@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     setupMainColorScheme()
     NetworkManager.shared.startNetworkReachabilityObserver()
+    initWindow()
+    window!.rootViewController = StoryboardScene.Main.splashVC.instantiate()
     return true
   }
 
@@ -25,7 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UINavigationBar.appearance().tintColor = .white
     UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
     UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-//    UINavigationBar.appearance().prefersLargeTitles = true
-    UINavigationBar.appearance().isTranslucent = false
+    UINavigationBar.appearance().prefersLargeTitles = true
+    UINavigationBar.appearance().isTranslucent = true
+  }
+
+  func initWindow() {
+    guard window == nil else { return }
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window!.makeKeyAndVisible()
+  }
+
+  func reload() {
+    initWindow()
+    window!.rootViewController = StoryboardScene.Main.initialScene.instantiate()
   }
 }
